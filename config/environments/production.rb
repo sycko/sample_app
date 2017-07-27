@@ -59,16 +59,16 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'rocky-harbor-65346.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  host = 'https://rocky-harbor-65346.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :address              => 'smtp.sendgridnet',
-    :port                 => '587',
-    :authentication       => :plain,
-    :user_name            => ENV['SENDGRID_USERNAME'],
-    :password             => ENV['SENDGRID_PASSWORD'],
-    :domain               => 'heroku.com',
-    :enable_startls_auto  => true
+    :address        => 'smtp.sendgrid.net',
+    :port           => '465',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
